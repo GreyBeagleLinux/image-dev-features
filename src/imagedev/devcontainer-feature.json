@@ -41,7 +41,11 @@
 	"privileged": true,
     // Bind-mounting /dev is required to make new loop devices accessbile in the container.
 	"mounts": [
-		"type=bind,source=/dev,target=/dev"
+		{
+            "type": "bind",
+            "source": "/dev",
+            "target": "/dev"
+        }
 	],
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"
