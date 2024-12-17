@@ -45,5 +45,7 @@
 	],
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"
-    ]
+    ],
+    "documentationURL": "https://greybeaglelinux.github.io/documentation/image-dev-features/index.html",
+    "licenseURL": "https://github.com/GreyBeagleLinux/image-dev-features/blob/main/LICENSE"
 }
