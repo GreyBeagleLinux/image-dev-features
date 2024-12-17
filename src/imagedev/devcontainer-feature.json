@@ -1,0 +1,10 @@
+{
+    "name": "Image Development",
+    "id": "imagedev",
+    "version": "0.1.0",
+    "description": "Tooling for embedded Linux image development.",
+    "options": {},
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
