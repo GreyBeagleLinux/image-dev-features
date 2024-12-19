@@ -1,0 +1,12 @@
+= The Image Development feature
+
+The _Image Development_ feature provides the https://github.com/GreyBeagleLinux/build_tools[build tools]
+and https://github.com/GreyBeagleLinux/embdgen[embdgen].
+It also installs all needed tools in the dev container.
+
+== Parameters
+
+build_tools_repo:: URL of the git repository which contains the build tools.
+build_tools_version:: Branch or tag of the build tools.
+embdgen_repo:: URL of the git repository which contains embdgen.
+embdgen_version:: Branch or tag of embdgen.
