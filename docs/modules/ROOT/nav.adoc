@@ -1,2 +1,3 @@
 * xref:index.adoc[]
 ** xref:changelog.adoc[]
+** xref:image-development.adoc[]

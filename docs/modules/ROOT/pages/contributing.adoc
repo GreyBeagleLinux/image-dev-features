@@ -1,0 +1,89 @@
+= Contributing to the Devcontainer Features
+
+Contributions to the Devcontainer Features are welcome!
+
+== Local development
+
+The build tools use a devcontainer as development environment.
+Please make use of this container, to ensure that your changes
+also work for other users. To use the container, you need a 
+running Docker installation, and your user needs to be able 
+to create new containers.
+
+The simplest way to make use of the devcontainer is by opening 
+the _build_tools.code-workspace_ using Visual Studio Code,
+install the recommended _Dev Containers_ extension, and then
+open the devcontainer. For more details, take a look at the
+https://code.visualstudio.com/docs/devcontainers/containers[devcontainers documentation].
+
+If you don't want to use Visual Studio Code, you can also use the
+container as stand-alone Docker container together with your
+preferred IDE. You need to install the 
+https://code.visualstudio.com/docs/devcontainers/devcontainer-cli[devcontainer-cli].
+to build the container. When you have the devcontainer command
+available, you can build the container by running the following
+command in the root folder of the git repository.
+
+[source,bash]
+----
+devcontainer build --workspace-folder . --image-name build_tools_env
+----
+
+
+After the build, you can run the container using the command:
+
+[source,bash]
+----
+devcontainer up --workspace-folder .
+----
+
+And open a shell in the container using the command:
+
+[source,bash]
+----
+devcontainer exec --workspace-folder . bash
+----
+
+Now you are ready to modify the code.
+
+== Local testing
+
+When you have finished your modifications you can run the test locally.
+You can test the feature for the latest Ubuntu Docker container
+using the command:
+
+[code,bash]
+----
+devcontainer features test -f imagedev -i ubuntu:latest
+----
+
+Please also test the code for the latest Debian Docker container.
+
+[code,bash]
+----
+devcontainer features test -f imagedev -i debian:latest
+----
+
+== Updating the documentation
+
+If your changes affect the existing documentation, or add new features,
+then please also update and extend the documentation.
+The documentation is build using _Antora_.
+You can install it in the devcontainer with the following command:
+
+[source,bash]
+----
+./docs/install_dependencies.sh
+----
+
+Afterwards you may need to source the bashrc with `source ~/.bashrc`
+to make the new tools available. Then you can build the documentation
+locally using by running the command:
+
+[source,bash]
+----
+./docs/build_docs.sh
+----
+
+When the documentation build was successful, you can review the result
+by opening _docs/site/index.html_ in your browser.

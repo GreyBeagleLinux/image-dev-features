@@ -1,3 +1,36 @@
 = Changelog
 
+All notable changes to this project will be documented in this file.
 
+The format is based on https://keepachangelog.com/en/1.1.0/[Keep a Changelog]
+and this project adheres to https://semver.org/[Semantic Versioning].
+
+== [Unreleased] - yyyy-mm-dd
+
+Devcontainer feature providing the embedded Linux build tools
+from https://github.com/GreyBeagleLinux/build_tools.
+
+=== Added
+
+=== Changed
+
+=== Fixed
+
+
+== [0.2.0] - 2024-12-19
+
+Devcontainer feature providing the embedded Linux build tools
+from https://github.com/GreyBeagleLinux/build_tools.
+
+=== Added
+
+- Image Development feature
+
+=== Changed
+
+=== Fixed
+
+
+== [0.1.2] - 2025-12-18
+
+First version, starting from https://github.com/devcontainers/feature-starter.
