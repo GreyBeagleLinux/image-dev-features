@@ -1,7 +1,7 @@
 {
     "name": "Image Development",
     "id": "imagedev",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "description": "Tooling for embedded Linux image development.",
     "options": {
         "build_tools_repo": {
@@ -15,9 +15,10 @@
         "build_tools_version": {
             "type": "string",
             "proposals": [
+                "gbl_main",
                 "main"
             ],
-            "default": "main",
+            "default": "gbl_main",
             "description": "Branch or tag of the build tools."
         },
         "embdgen_repo": {

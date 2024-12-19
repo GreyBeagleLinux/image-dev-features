@@ -1,7 +1,8 @@
 #!/bin/sh
 set -e
 
-packages="locales sudo git python3 python3-pip python3-venv"
+# Pacakges required by this script
+packages="sudo git python3 python3-pip python3-venv gnupg"
 
 echo "Installing required packages"
 
@@ -9,7 +10,7 @@ apt update
 
 echo "Installing required packages"
 
-DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install -y $packages
+DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install -y $packages $build_tools_dependencies
 
 echo "Setting up build tools in folder /build"
 
@@ -26,6 +27,11 @@ git clone --branch $BUILD_TOOLS_VERSION $BUILD_TOOLS_REPO /build/build_tools
 
 bash -c "source /build/venv/bin/activate && cd /build && pip install -e build_tools"
 
+# Install build tools system dependencies
+bash -c "source /build/venv/bin/activate && build_tools_core -d"
+# Apply required host configuration
+bash -c "source /build/venv/bin/activate && build_tools_core -c"
+
 # Install embdgen
 
 echo "Using build tools from repo: $EMBDGEN_REPO"
@@ -38,11 +44,6 @@ DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install -y \
     mtools e2fsprogs cryptsetup-bin fakeroot
 
 bash -c "source /build/venv/bin/activate && cd /build/embdgen && pip install -e embdgen-core && pip install -e embdgen-cominit && pip install -e embdgen-config-yaml"
-
-if [ $_CONTAINER_USER != "root" ]; then
-    echo "Fixing ownership of build tools."
-    sudo chown -R $_CONTAINER_USER /build
-fi
 
 echo "Enabling venv as default."
 
